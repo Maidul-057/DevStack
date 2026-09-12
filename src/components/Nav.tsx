@@ -11,7 +11,7 @@ const Nav = () => {
     const [activeNav, setActiveNav] = useState("Home");
     const NavLnk:string[] = ["Home", "Technologies", "Projects", "About", "Contact"]
     return (
-        <nav className="sticky top-0 z-50">
+        <nav className="sticky top-0 z-50 bg-white">
         <div  className="flex justify-between items-center max-w-7xl mx-auto my-4">
             <img src={logo} alt = "Logo"/>
             <ul className="flex gap-5 items-center">
