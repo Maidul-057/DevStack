@@ -1,2 +1,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.gradient-text {
+    @apply bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 bg-clip-text text-transparent;
+}
+
+.gradient-bg {
+    @apply bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600;
+}
