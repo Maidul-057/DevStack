@@ -1,4 +1,5 @@
 import type { Technologies } from "../types/technoTypes";
+import { IoClose } from "react-icons/io5";
 
 type YourStackProps = {
     stack: Technologies[];
@@ -12,40 +13,23 @@ const YourStack = ({
     onRemoveAll
 }: YourStackProps) => {
     return (
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+        <div className="min-h-[250px] rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
 
-            <div className="flex items-center justify-between">
-                <div>
+            <div className=" items-center justify-between">
+                
                     <h2 className="text-xl font-bold text-gray-900">
                         Your Stack
                     </h2>
 
-                    <p className="mt-1 text-sm text-gray-500">
-                        {stack.length} Technology Selected
-                    </p>
-                </div>
-
-                {stack.length > 0 && (
-                    <button
-                        onClick={onRemoveAll}
-                        className="text-sm font-semibold text-red-500"
-                    >
-                        Remove All
-                    </button>
-                )}
+                   <p className="mt-1 text-sm text-gray-500 my-4">
+                {stack.length === 0 ? "No technology selected yet.":`${stack.length} Technology Selected`}</p>
+                     
             </div>
 
             {stack.length === 0 ? (
-                <div className="mt-6 rounded-xl bg-gray-50 px-5 py-10 text-center">
-                    <p className="text-sm font-medium text-gray-600">
-                        Your stack is empty.
-                    </p>
-
-                    <p className="mt-2 text-xs leading-5 text-gray-400">
-                        Add technologies from the list to build your development stack.
-                    </p>
-                </div>
-            ) : (
+                <div className="rounded-xl border-2 border-dashed border-gray-300 p-6 text-center">
+                <p className="text-sm font-medium text-gray-500"> Your stack is empty</p>
+                 </div>) : (
                 <div className="mt-6 space-y-3">
                     {stack.map((technology) => (
                         <div
@@ -68,14 +52,19 @@ const YourStack = ({
                                 </p>
                             </div>
 
-                            <button
-                                onClick={() => onRemove(technology.id)}
-                                className="flex h-7 w-7 items-center justify-center rounded-full text-gray-400 hover:bg-red-50 hover:text-red-500"
-                            >
-                                ✕
-                            </button>
+                            <button onClick={() => onRemove(technology.id)}
+                            className="flex h-7 w-7 items-center justify-center rounded-full text-gray-400 hover:bg-red-50">
+                            <IoClose className="text-lg" /> </button>
                         </div>
                     ))}
+                     {stack.length > 0 && (
+                    <button className="mt-3 w-full border rounded-lg px-4 py-2 text-sm font-semibold text-red-500 hover:bg-red-50/40"
+                        onClick={onRemoveAll}
+                        
+                    >
+                        Remove All
+                    </button>
+                )}
                 </div>
             )}
 

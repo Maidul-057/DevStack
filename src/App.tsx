@@ -73,7 +73,7 @@ const TechnologySection = () => {
             <p className='text-gray-400'>Pick one technology per category to buid your ideal stack.</p>
         </div>
 
-            <div className="grid gap-6 lg:grid-cols-[1fr_320px]">
+            <div className="grid items-start gap-6 lg:grid-cols-[1fr_320px]">
 
                 <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 

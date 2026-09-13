@@ -1,4 +1,5 @@
 import type { Technologies } from "../types/technoTypes";
+import { IoCheckmark } from "react-icons/io5";
 
 type TechnologyCardProps = {
     technology: Technologies;
@@ -78,16 +79,18 @@ const TechnologyCard = ({
                 
 
                 <button
-                    onClick={() => onAdd(technology)}
-                    disabled={isAdded}
-                    className={`rounded-lg px-4 py-2 text-sm font-semibold ${
-                        isAdded
-                            ? "cursor-not-allowed bg-gray-200 text-gray-500"
-                            : "bg-black text-white w-2xl"
-                    }`}
-                >
-                    {isAdded ? "✓ Added to Stack" : "Add to Stack"}
-                </button>
+    onClick={() => onAdd(technology)}
+    disabled={isAdded}
+    className={`w-full rounded-lg px-4 py-2 text-sm font-semibold ${
+        isAdded
+            ? "cursor-not-allowed bg-red-50 text-pink-500 font-bold"
+            : "bg-black text-white"
+               }`}>
+        {isAdded ? (
+        <span className="flex items-center justify-center gap-1">
+        <IoCheckmark className="text-lg" />
+            Added to Stack
+         </span>) : ("Add to Stack")} </button>
             </div>
 
         </div>
