@@ -6,6 +6,7 @@ import { Suspense, use, useState } from "react";
 import { toast } from "react-toastify";
 import TechnologyCard from "./components/technologyCard";
 import YourStack from "./components/YourStack";
+import Footer from "./components/Footer"
 
 const technologiesPromiesFetch = async (): Promise<Technologies[]> => {
     const res = await fetch("/data.json");
@@ -73,7 +74,7 @@ const TechnologySection = () => {
             <p className='text-gray-400'>Pick one technology per category to buid your ideal stack.</p>
         </div>
 
-            <div className="grid items-start gap-6 lg:grid-cols-[1fr_320px]">
+            <div className="grid items-start gap-6 lg:grid-cols-[1fr_320px] my-20">
 
                 <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 
@@ -97,8 +98,9 @@ const TechnologySection = () => {
                 />
 
             </div>
-
+         <Footer/>
         </section>
+        
     );
 };
 
