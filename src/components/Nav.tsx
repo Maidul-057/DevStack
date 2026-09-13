@@ -1,46 +1,126 @@
-import { useState } from 'react';
-import logo from '../assets/logo-text.png'
-
+import { useState } from "react";
+import logo from "../assets/logo-text.png";
 
 const Nav = () => {
-
-    const [ButtonType, setButtonType]=useState("Sign Up")
-    const handleUpdteBtnType = (type:"Sign Up" | "Sign In")=>{ 
-        setButtonType(type);
-    }
+    const [ButtonType, setButtonType] = useState<"Sign Up" | "Sign In">("Sign Up");
     const [activeNav, setActiveNav] = useState("Home");
-    const NavLnk:string[] = ["Home", "Technologies", "Projects", "About", "Contact"]
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const handleUpdteBtnType = (type: "Sign Up" | "Sign In") => {
+        setButtonType(type);
+    };
+
+    const NavLnk: string[] = [
+        "Home",
+        "Technologies",
+        "Projects",
+        "About",
+        "Contact"
+    ];
+
     return (
         <nav className="sticky top-0 z-50 bg-white">
-        <div  className="flex justify-between items-center max-w-7xl mx-auto my-4">
-            <img src={logo} alt = "Logo"/>
-            <ul className="flex gap-5 items-center">
-    {NavLnk.map((item) => (
-        <li
-            key={item}
-            onClick={() => setActiveNav(item)}
-            className={
-                activeNav === item
-                    ? "text-pink-600 font-semibold cursor-pointer"
-                    : "text-black cursor-pointer"
-            }
-        >
-            {item}
-        </li>
-    ))}
-</ul>
-            <div className="flex gap-2">
+
+            {/* Main Navbar */}
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+
+                {/* Mobile Menu Button */}
                 <button
-                onClick={()=>handleUpdteBtnType("Sign In")}
-                 className={`btn ${ButtonType === "Sign In"? "btn-SignIn bg-pink-600  text-amber-50":" "} border rounded-full px-6 py-2`}>Sign In</button>
-                <button 
-                onClick={()=>handleUpdteBtnType("Sign Up")}
-                className={`btn ${ButtonType === "Sign Up"? "btn-SignUp  bg-pink-600  text-amber-50":" "} border rounded-full px-6 py-2`}>Sign Up</button>
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    className="btn btn-square btn-ghost md:hidden"
+                >
+                    <svg
+                        aria-label="Menu"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        className="inline-block h-5 w-5 stroke-current"
+                    >
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M4 6h16M4 12h16M4 18h16"
+                        />
+                    </svg>
+                </button>
+
+                {/* Logo */}
+                <img
+                    src={logo}
+                    alt="Dev Stack"
+                    className="h-8 w-auto md:h-10"
+                />
+
+                {/* Desktop Navigation */}
+                <ul className="hidden items-center gap-5 md:flex">
+                    {NavLnk.map((item) => (
+                        <li
+                            key={item}
+                            onClick={() => setActiveNav(item)}
+                            className={
+                                activeNav === item
+                                    ? "cursor-pointer font-semibold text-pink-600"
+                                    : "cursor-pointer text-black"
+                            }
+                        >
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+
+                {/* Buttons */}
+                <div className="flex gap-1.5 md:gap-2">
+                    <button
+                        onClick={() => handleUpdteBtnType("Sign In")}
+                        className={`rounded-full px-3 py-1.5 text-xs md:px-6 md:py-2 md:text-sm ${
+                            ButtonType === "Sign In"
+                                ? "bg-pink-600 text-amber-50"
+                                : ""
+                        }`}
+                    >
+                        Sign In
+                    </button>
+
+                    <button
+                        onClick={() => handleUpdteBtnType("Sign Up")}
+                        className={`rounded-full px-3 py-1.5 text-xs md:px-6 md:py-2 md:text-sm ${
+                            ButtonType === "Sign Up"
+                                ? "bg-pink-600 text-amber-50"
+                                : ""
+                        }`}
+                    >
+                        Sign Up
+                    </button>
+                </div>
             </div>
-        </div>
-        <div className="divider"></div>
+
+            {/* Mobile Navigation */}
+            {menuOpen && (
+                <div className="border-t bg-white px-4 py-3 md:hidden">
+                    <ul className="flex flex-col gap-3">
+                        {NavLnk.map((item) => (
+                            <li
+                                key={item}
+                                onClick={() => {
+                                    setActiveNav(item);
+                                    setMenuOpen(false);
+                                }}
+                                className={
+                                    activeNav === item
+                                        ? "cursor-pointer font-semibold text-pink-600"
+                                        : "cursor-pointer text-black"
+                                }
+                            >
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
+            <div className="divider my-0"></div>
         </nav>
-        
     );
 };
 

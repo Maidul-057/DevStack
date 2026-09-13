@@ -17,23 +17,27 @@ const Footer = () => {
                           modern software.
                         </p>
 
-                        <div className="mt-4 flex gap-4 text-[12px] font-normal font-bold text-gray-600">
-                            <a href="#" className="hover:text-pink-600">
-                                GitHub
-                            </a>
+                        <div className="mt-4 flex items-center gap-3 text-[12px] font-bold text-gray-600">
+    <a href="#" className="hover:text-pink-600">
+        GitHub
+    </a>
 
-                            <a href="#" className="hover:text-pink-600">
-                                Twitter
-                            </a>
+    <span className="h-1.5 w-1.5 rounded-full bg-gray-400 md:hidden"></span>
 
-                            <a href="#" className="hover:text-pink-600">
-                                LinkedIn
-                            </a>
-                        </div>
+    <a href="#" className="hover:text-pink-600">
+        Twitter
+    </a>
+
+    <span className="h-1.5 w-1.5 rounded-full bg-gray-400 md:hidden"></span>
+
+    <a href="#" className="hover:text-pink-600">
+        LinkedIn
+    </a>
+</div>
                     </div>
 
                     {/* Product */}
-                    <div>
+                    <div className='hidden md:block'>
                         <h3 className="text-[12px] font-bold uppercase text-gray-900">
                             Product
                         </h3>
@@ -54,7 +58,7 @@ const Footer = () => {
                     </div>
 
                     {/* Company */}
-                    <div>
+                    <div className='hidden md:block'>
                         <h3 className="text-[12px] font-bold uppercase text-gray-900">
                             Company
                         </h3>
@@ -75,7 +79,7 @@ const Footer = () => {
                     </div>
 
                     {/* Legal */}
-                    <div>
+                    <div className='hidden md:block'>
                         <h3 className="text-[12px] font-bold uppercase text-gray-900">
                             Legal
                         </h3>
