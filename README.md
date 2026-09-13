@@ -2,10 +2,8 @@
 
 A responsive React + TypeScript web app where I let users explore popular frontend, backend, database, and tooling technologies, compare them side by side, and assemble their own personalized development stack.
 
-🔗 [GitHub Repository] (https://github.com/Maidul-057/DevStack)
-🔗 [Live Site](https://dev-stack-nu-five.vercel.app/)
-
----
+🔗 **GitHub Repository:** https://github.com/Maidul-057/DevStack  
+🔗 **Live Site:** https://dev-stack-nu-five.vercel.app/
 
 ## 📖 About the Project
 
@@ -73,5 +71,5 @@ npm run dev
 
 ## 🔗 Links
 
-🔗 **GitHub Repository:** https://github.com/Maidul-057/DevStack
-🔗 **Live Site:**(https://dev-stack-nu-five.vercel.app/)
+- [GitHub Repository](https://github.com/Maidul-057/DevStack)
+- [Live Site](https://dev-stack-nu-five.vercel.app/)
